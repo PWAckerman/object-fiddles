@@ -60,22 +60,20 @@ that is named color, with the value being the color of your backpack. */
 var backPack = {};
 item = 'firstPocket';
 backPack[item] = 'chapstick';
-backPack.color('blue');
+backPack.color = 'blue';
 
 //After you do the above, alert your entire backPack object.
 
   //Code here
 
-alert(backpack);
+alert(backPack);
 
 /*You probably noticed that it just alerted [object Object].
 Alerting to see the data in your Object doesn't work so well.
 Instead, console.log your whole backPack object and then check out the console. */
 
   //Code here
-for(var prop in backpack){
-	console.log(backpack[prop]);
-}
+	console.log(backPack);
 
 //NEXT PROBLEM
 
@@ -118,7 +116,7 @@ var album = {
 	this ends now: 300,
 	no it didnt: 330,
 	on and on: 275,
-	let's go: 345,
+	lets go: 345,
 	this ends now reprise: 450
 }
 
@@ -142,11 +140,11 @@ for(var prop in album){
   //Code Here
 
 var states = {
-	new york: 1000000000000,
+	new_york: 1000000000000,
 	pennsylvania: 10000000,
-	rhode island: 2,
-	west virginia: 100,
-	puerto rico: 0
+	rhode_island: 2,
+	west_virginia: 100,
+	puerto_rico: 0
 }
 
 //Now, loop through your states object and if the states population is greater than 30K, alert that state.
@@ -176,24 +174,21 @@ that each value is truthy. If it's not truthy, remove it from the object. */
 
   //Code Here
 
-for(var prop in user){
-	if(user[prop] != true){
-		delete user[prop];
+	for(var prop in user){
+		if(user[prop]){
+		} else {
+	      delete user[prop];
+	    }
 	}
-	return user;
-}
 
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 
   //Code Here
-
-
-
+user.name = "Patrick Ackerman";
+user.pwHash = "PWORDHASH";
+user.username = 'narcolepticon';
 
 //NEXT PROBLEM
-
-
-
 
 var user = {
         name: 'Tyler McGinnis',
@@ -211,9 +206,13 @@ var user = {
 
   //Code Here
 
-//Now call the sayName method that's on the user object which will alert the users email
+	user.name = 'Tyler S. McGinnis';
+	user.email = 'tyler.mcginnis@devmounta.in';
 
+//Now call the sayName method that's on the user object which will alert the users email
   //Code Here
+
+	user.sayName();
 
 
 
@@ -227,17 +226,23 @@ var user = {
 
   //Code Here
 
+	var methodCollection = {};
+
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
   //Code Here
 
+	methodCollection.alertHello = function(){ alert('hello');};
+	methodCollection.logHello = function(){ console.log('hello')};
+
 //Now call your alertHello and logHello methods.
 
   //Code Here
 
-
+methodCollection.alertHello();
+methodCollection.logHello();
 
 //NEXT PROBLEM
 
@@ -247,6 +252,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
   //Code Here
 
+function MakePerson(name, birthday, ssn){
+			var person = {
+				name: name,
+				birthday: birthday,
+				ssn: ssn,
+			};
+			return person;
+		};
 
 
 //NEXT PROBLEM
@@ -256,9 +269,18 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // Create a function called MakeCard which takes in all the data it needs to make a Credit Card object and returns that object so that whenever you invoke MakeCard, you get a brand new credit card.
 
   //Code Here
-  
-  
-  
+
+	function MakeCard(name, number, expiration, cvv){
+				var card = {
+					name: name,
+					number: number,
+					expiration: expiration,
+					cvv: cvv
+				};
+				return card;
+			};
+
+
 //NEXT PROBLEM
 
 
@@ -270,4 +292,18 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
   //Code Here
 
+	var me = MakePerson('patrick','feb 28','ssn');
+	var card = MakeCard('patrick', 888888888888888, "12/17",200)
 
+		function bindcard(person, creditcard){
+	        var pers = {}
+			for(var thing in person){
+	          pers[thing] = person[thing];
+	        }
+			for(var prop in creditcard){
+				if(!pers[prop]){
+					pers[prop] = creditcard[prop];
+				}
+			}
+			return pers;
+		}
