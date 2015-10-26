@@ -5,29 +5,43 @@
 
   //Code here
 
+var me = {
+	name: "Patrick Ackerman",
+	age: 30
+}
 
 
+alert(me.name);
 
 //NEXT PROBLEM
-
-
-
 
 //Make a 'favoriteThings' object that contains the following keys: band, food, person, book, movie, holiday. Have the values to those keys be your favorite thing in that category.
 
   //Code here
+
+var favoriteThings = {
+	band: "Milemarker",
+	food: "Pizza",
+	person: "",
+	book: "The Crying of Lot 49",
+	movie: "",
+	holiday: "Christmas"
+}
 
 
 //After you've made your object, add another key named 'car' with the value being your favorite car and then another key named 'brand' with the value being your favorite brand.
 
   //Code here
 
+favoriteThings.car = "charger";
+favoriteThings.brand = "I am slave to no brand.";
 
 //Now change the food key in your favoriteThings object to be 'Lettuce' and change the book key in your favoriteThings object to be '50 Shades of Gray'.
 
   //Code here
 
-
+favoriteThings.food = "Lettuce";
+favoriteThings.book = "50 Shades of Gray";
 
 
 //NEXT PROBLEM
@@ -43,19 +57,25 @@ Using dot notation, add another key (or property) to your backPack object
 that is named color, with the value being the color of your backpack. */
 
   //Code here
+var backPack = {};
+item = 'firstPocket';
+backPack[item] = 'chapstick';
+backPack.color('blue');
 
 //After you do the above, alert your entire backPack object.
 
   //Code here
+
+alert(backpack);
 
 /*You probably noticed that it just alerted [object Object].
 Alerting to see the data in your Object doesn't work so well.
 Instead, console.log your whole backPack object and then check out the console. */
 
   //Code here
-
-
-
+for(var prop in backpack){
+	console.log(backpack[prop]);
+}
 
 //NEXT PROBLEM
 
@@ -66,11 +86,23 @@ Instead, console.log your whole backPack object and then check out the console. 
 
   //Code Here
 
+var me = {
+	name: 'Patrick',
+	age: 30,
+	height: "5'11",
+	gender: 'm',
+	married: false,
+	eyeColor: 'brown',
+	hairColor: 'brown'
+}
+
 //Now, loop through your object and alert every value. *Tyler --> 24 --> 6'0 --> Male, etc etc
 
   //Code Here
 
-
+for(var prop in me){
+	alert(me[prop]);
+}
 
 
 //NEXT PROBLEM
@@ -82,9 +114,20 @@ Instead, console.log your whole backPack object and then check out the console. 
 
   //Code Here
 
+var album = {
+	this ends now: 300,
+	no it didnt: 330,
+	on and on: 275,
+	let's go: 345,
+	this ends now reprise: 450
+}
+
 //Now, loop through your album object alerting every song title individually.
 
   //Code Here
+for(var prop in album){
+	alert(prop);
+}
 
 
 
@@ -98,16 +141,26 @@ Instead, console.log your whole backPack object and then check out the console. 
 
   //Code Here
 
+var states = {
+	new york: 1000000000000,
+	pennsylvania: 10000000,
+	rhode island: 2,
+	west virginia: 100,
+	puerto rico: 0
+}
+
 //Now, loop through your states object and if the states population is greater than 30K, alert that state.
 
   //Code Here
 
-
+for(var prop in states){
+	if(states[prop] > 30000){
+		alert(state);
+	}
+}
 
 
 //NEXT PROBLEM
-
-
 
 
 var user = {
@@ -122,6 +175,13 @@ var user = {
 that each value is truthy. If it's not truthy, remove it from the object. */
 
   //Code Here
+
+for(var prop in user){
+	if(user[prop] != true){
+		delete user[prop];
+	}
+	return user;
+}
 
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 
